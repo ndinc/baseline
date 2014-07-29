@@ -1,0 +1,206 @@
+/* line 5, ../sass/partials/util/_mixin.sass */
+.m-share:before, #header:before, .m-share:after, #header:after {
+  content: " ";
+  display: table;
+}
+/* line 9, ../sass/partials/util/_mixin.sass */
+.m-share:after, #header:after {
+  clear: both;
+}
+
+/* line 100, ../sass/partials/util/_mixin.sass */
+.is-visible, .js-pjax_container {
+  visibility: visible;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* line 104, ../sass/partials/util/_mixin.sass */
+.is-hidden, .is-loading .js-pjax_container {
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+/* line 61, ../sass/partials/util/_respond.sass */
+#guide {
+  diplay: none;
+  background: url(../images/respond_guide.png) left top no-repeat;
+  min-height: 33px;
+  width: 100%;
+  position: fixed;
+  bottom: 50px;
+  opacity: 0.9;
+}
+
+/* line 1, ../sass/partials/util/_class.sass */
+.hide {
+  display: none;
+}
+
+/* line 4, ../sass/partials/util/_class.sass */
+.clearfix {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+@media only screen and (min-width: 40.063em) {
+  /* line 16, ../sass/partials/util/_class.sass */
+  .is-narrow {
+    display: none;
+  }
+}
+@media only screen and (max-width: 40em) {
+  /* line 20, ../sass/partials/util/_class.sass */
+  .is-wide {
+    display: none;
+  }
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 24, ../sass/partials/util/_class.sass */
+  .is-small-only {
+    display: none;
+  }
+}
+@media only screen and (max-width: 40em) {
+  /* line 28, ../sass/partials/util/_class.sass */
+  .is-medium-up {
+    display: none;
+  }
+}
+@media only screen and (max-width: 40em) {
+  /* line 32, ../sass/partials/util/_class.sass */
+  .is-medium-only {
+    display: none;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 32, ../sass/partials/util/_class.sass */
+  .is-medium-only {
+    display: none;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 36, ../sass/partials/util/_class.sass */
+  .is-medium-down {
+    display: none;
+  }
+}
+@media only screen and (max-width: 40em) {
+  /* line 40, ../sass/partials/util/_class.sass */
+  .is-large-only {
+    display: none;
+  }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  /* line 40, ../sass/partials/util/_class.sass */
+  .is-large-only {
+    display: none;
+  }
+}
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {
+  /* line 40, ../sass/partials/util/_class.sass */
+  .is-large-only {
+    display: none;
+  }
+}
+@media only screen and (max-width: 40em) {
+  /* line 44, ../sass/partials/util/_class.sass */
+  .is-large-up {
+    display: none;
+  }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  /* line 44, ../sass/partials/util/_class.sass */
+  .is-large-up {
+    display: none;
+  }
+}
+@media only screen and (min-width: 90.063em) {
+  /* line 48, ../sass/partials/util/_class.sass */
+  .is-large-down {
+    display: none;
+  }
+}
+@media only screen and (max-width: 40em) {
+  /* line 52, ../sass/partials/util/_class.sass */
+  .is-xlarge-up {
+    display: none;
+  }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  /* line 52, ../sass/partials/util/_class.sass */
+  .is-xlarge-up {
+    display: none;
+  }
+}
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  /* line 52, ../sass/partials/util/_class.sass */
+  .is-xlarge-up {
+    display: none;
+  }
+}
+/* line 1, ../sass/partials/util/_sprite.sass */
+i.dummy {
+  text-indent: -9999px;
+  line-height: 1;
+  font-size: 1px;
+  overflow: hidden;
+  border: none;
+  display: inline-block;
+  height: 0;
+  background-repeat: no-repeat;
+}
+
+/* line 47, ../sass/partials/util/_sprite.sass */
+i.dummy {
+  background-image: url('/images/sprite_base-se7c618d1d0.png');
+  background-image: url(../images/sprite_base-se7c618d1d0.png);
+  background-position: 0 0;
+  padding-top: 120px;
+  width: 120px;
+}
+
+/* line 1, ../sass/partials/_base.sass */
+body {
+  text-align: center;
+}
+
+/* line 5, ../sass/partials/_base.sass */
+#container {
+  text-align: left;
+}
+
+/* line 3, ../sass/partials/module/_general.sass */
+.m-share > span {
+  position: relative;
+  display: block;
+  float: left;
+  margin-left: 10px;
+}
+/* line 8, ../sass/partials/module/_general.sass */
+.m-share > span:first-child {
+  margin-left: 0;
+}
+/* line 10, ../sass/partials/module/_general.sass */
+.m-share .facebook {
+  top: -2px;
+}
+/* line 12, ../sass/partials/module/_general.sass */
+.m-share .twitter {
+  width: 105px;
+}
+
+/* line 1, ../sass/partials/module/_pjax.js.sass */
+.js-pjax_container {
+  display: block;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* line 1, ../sass/partials/content/_header.sass */
+#header {
+  background: #333333;
+}

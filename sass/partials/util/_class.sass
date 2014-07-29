@@ -1,0 +1,63 @@
+.hide
+  display: none
+
+.clearfix
+  +clearfix
+
+
+.is-visible
+  @extend %is-visible
+
+.is-hidden
+  @extend %is-hidden
+
+
++respond-to("!narrow")
+  .is-narrow
+    display: none
+
++respond-to("!wide")
+  .is-wide
+    display: none
+
++respond-to("!small-only")
+  .is-small-only
+    display: none
+
++respond-to("!medium-up")
+  .is-medium-up
+    display: none
+
++respond-to("!medium-only")
+  .is-medium-only
+    display: none
+
++respond-to("large-up")
+  .is-medium-down
+    display: none
+
++respond-to("!large-only")
+  .is-large-only
+    display: none
+
++respond-to("!large-up")
+  .is-large-up
+    display: none
+
++respond-to("xlarge-up")
+  .is-large-down
+    display: none
+
++respond-to("!xlarge-up")
+  .is-xlarge-up
+    display: none
+
++respond-to("!xlarge-only")
+  .is-xlarge-only
+    display: none
+
++respond-to("!xxlarge-up")
+  .is-xxlarge-up
+    display: none
+  .is-xxlarge-only
+    display: none

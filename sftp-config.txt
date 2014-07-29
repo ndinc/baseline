@@ -1,0 +1,37 @@
+{
+  "type": "sftp",
+
+  "save_before_upload": true,
+  "upload_on_save": false,
+  "sync_down_on_open": false,
+  "sync_skip_deletes": false,
+  "confirm_downloads": false,
+  "confirm_sync": false,
+  "confirm_overwrite_newer": false,
+
+  "host": "",
+  "user": "",
+  "password": "",
+  "port": "2222",
+  "remote_path": "",
+
+  "production_server": {
+    "host": "",
+    "user": "",
+    "password": "",
+    "port": "2222",
+    "remote_path": ""
+  },
+
+  "ignore_regexes": [
+      "\\.sublime-(project|workspace)", "sftp-config(-alt\\d?)?\\.json",
+      "sftp-settings\\.json", "/venv/", "\\.svn", "\\.hg", "\\.git", "images_/", "node_modules/",
+      "\\.bzr", "_darcs", "CVS", "\\.DS_Store", "Thumbs\\.db", "desktop\\.ini", ".sass-cache","sass/"
+  ],
+  "exclude_glob": [
+    "node_modules/", ".sass-cache/", ".DS_Store", ".git", ".sublime-project", ".sublime-workspace", "*.json", "vendor/", "config.rb", "*.coffee",
+    ".bowerrc","sass/","coffee/"
+  ],
+
+  "connect_timeout": 30
+}
