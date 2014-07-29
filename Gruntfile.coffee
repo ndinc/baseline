@@ -3,6 +3,7 @@ path = require('path')
 
 module.exports = (grunt) ->
   pkg = grunt.file.readJSON 'package.json'
+  bowerJson = grunt.file.readJSON 'bower.json'
   sftpConfig = grunt.file.readJSON 'sftp-config.json'
 
   grunt.initConfig
@@ -478,6 +479,10 @@ module.exports = (grunt) ->
   grunt.registerTask 'rewrite-json', (key, value)=>
     pkg[key] = value
     grunt.file.write 'package.json', JSON.stringify(pkg, null, '\t')
+
+  grunt.registerTask 'rewrite-bowerjson', (key, value)=>
+    bowerJson[key] = value
+    grunt.file.write 'bower.json', JSON.stringify(bowerJson, null, '\t')
 
   ## process
 
