@@ -217,6 +217,8 @@ module.exports = (grunt) ->
 
         files:
           '<%= dir.css %>/style.min.css': [
+            '<%= dir.css %>/libs/foundation/normalize.css'
+            '<%= dir.css %>/libs/foundation/foundation.css'
             '<%= dir.css %>/vendor.css'
             '<%= dir.css %>/style.css'
           ]
@@ -255,7 +257,7 @@ module.exports = (grunt) ->
         flatten: true
 
       foundation_base:
-        src: '<%= dir.sass %>/libs/foundation/_foundation.scss'
+        src: '<%= dir.sass %>/libs/foundation/foundation.scss'
         dest: 'vendor/sass/foundation/foundation.scss'
 
       foundation_all:
@@ -523,7 +525,6 @@ module.exports = (grunt) ->
     'removelogging'
     'uglify'
     'compass:pro'
-    'concat:style'
     'cmq'
     'csso'
     'autoprefixer'
