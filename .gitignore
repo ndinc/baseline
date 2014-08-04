@@ -11,6 +11,7 @@ sprite_*.png
 compass_app_log.txt
 sitemap.xml
 sitemap.xml.gz
+password.txt
 sftp-config.json
 
 #wp
