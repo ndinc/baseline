@@ -1,3 +1,3 @@
-# [project_name]
+# \#{project_name}
 
 nD cording guide line
