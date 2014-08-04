@@ -20,7 +20,7 @@
     "user": "example.user",
     "password": "example.password",
     "port": "example.port",
-    "remote_path": "example.remote_path",
+    "remote_path": "example.remote_path"
   },
 
   "ignore_regexes": [
