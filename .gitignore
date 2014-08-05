@@ -7,12 +7,12 @@
 *.map
 *.min.css
 *.min.js
+*.log
 sprite_*.png
 compass_app_log.txt
 sitemap.xml
 sitemap.xml.gz
 password.txt
-debug.log
 sftp-config.json
 
 #wp

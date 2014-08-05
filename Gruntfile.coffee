@@ -399,6 +399,20 @@ module.exports = (grunt) ->
             'bye;"'
           ]
           return cmd.join ' '
+      'deploy-staging-wp':
+        command: do ->
+          cmd = [
+            'lftp'
+            '-u <%= sftpConfig.user %>,<%= sftpConfig.password %>'
+            '-p <%= sftpConfig.port %>'
+            '<%= sftpConfig.type %>://<%= sftpConfig.host %>'
+            '-e "mirror -Rev'
+            '-X ' + sftpConfig.exclude_glob.join(' -X ')
+            './../../../../'
+            sftpConfig.remote_path.replace('\/wp\/wp-content\/themes\/'+pkg.name,'') + ';' #remote path
+            'bye;"'
+          ]
+          return cmd.join ' '
       'deploy-pro':
         command: do ->
           cmd = [
@@ -413,7 +427,20 @@ module.exports = (grunt) ->
             'bye;"'
           ]
           return cmd.join ' '
-
+      'deploy-pro-wp':
+        command: do ->
+          cmd = [
+            'lftp'
+            '-u <%= sftpConfig.production.user %>,<%= sftpConfig.production.password %>'
+            '-p <%= sftpConfig.production.port %>'
+            '<%= sftpConfig.production.type %>://<%= sftpConfig.production.host %>'
+            '-e "mirror -Rev'
+            '-X ' + sftpConfig.production.exclude_glob.join(' -X ')
+            './../../../../'
+            sftpConfig.production.remote_path.replace('\/wp\/wp-content\/themes\/'+pkg.name,'') + ';' #remote path
+            'bye;"'
+          ]
+          return cmd.join ' '
       'flow-release':
         command: [
           'git flow release start <%= pkg.version %>',
