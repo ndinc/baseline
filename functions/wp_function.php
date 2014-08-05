@@ -159,6 +159,7 @@ function get_post_main_desc($post_id){
 }
 
 function get_post_main_image($post_id, $size='full'){
+  global $post;
   $src = null;
   $main_thumb_id = get_post_meta($post_id, 'main_thumb', true);
   $eyecatch_thumb_id = get_post_thumbnail_id($post_id);
@@ -216,6 +217,7 @@ function get_the_post_image($post_id, $size, $order=0) {
    'post_status' => null,
    'post_parent' => $post_id
   ));
+  if (empty($attachments) ) return null;
   $attachment = $attachments[$order];
   $attachment_image = wp_get_attachment_image_src($attachment->ID, $size);
   return $attachment_image[0];
