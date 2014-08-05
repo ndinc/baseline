@@ -44,7 +44,7 @@ function get_page_path(){
 }
 
 function get_sitepath($type = 'url'){
-  return get_bloginfo($type);
+  return ($type == 'directory')? get_template_directory().'/' : get_bloginfo($type);
 }
 
 function sitepath($type = 'url'){
