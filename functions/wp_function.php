@@ -22,16 +22,16 @@ function get_page_path(){
   if(is_home()){
     $page_path = 'pages/index.php';
   }else if(is_single()){
-    $page_path = TEMPLATEPATH.'/single/'.get_post_type().'.php';
+    $page_path = get_template_directory().'/single/'.get_post_type().'.php';
     if (!file_exists($page_path)){
-      $page_path = 'single/single.php';
+      $page_path = get_template_directory().'/single/article.php';
     }
   }else if(is_static()){
     $page_path = 'pages/' . get_query_var('name') . '.php';
   }else if(is_page()){
     $page_path = 'pages/page.php';
   }else if(is_tax()){
-    $page_path = TEMPLATEPATH.'/page-template/taxonomy.php';
+    $page_path = get_template_directory().'/page-template/taxonomy.php';
     if (!file_exists($page_path)){
       $page_path = 'pages/index.php';
     }
@@ -58,7 +58,7 @@ function is_static(){
 
 function get_static_file_path(){
   $filepath = get_req_path();
-  $page_path = TEMPLATEPATH. '/pages/' . $filepath . '.php';
+  $page_path = get_template_directory(). '/pages/' . $filepath . '.php';
   return $page_path;
 }
 
@@ -198,6 +198,9 @@ function page_navi($my_query) {
   ));
 }
 
+function get_post_terms(){
+
+}
 
 function the_post_image($post_id, $size, $order=0) {
   echo get_the_post_image($post_id, $size, $order, $max);
