@@ -12,6 +12,7 @@ compass_app_log.txt
 sitemap.xml
 sitemap.xml.gz
 password.txt
+debug.log
 sftp-config.json
 
 #wp
