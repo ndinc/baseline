@@ -159,7 +159,6 @@ function get_post_main_desc($post_id){
 }
 
 function get_post_main_image($post_id, $size='full'){
-  global $post;
   $src = null;
   $main_thumb_id = get_post_meta($post_id, 'main_thumb', true);
   $eyecatch_thumb_id = get_post_thumbnail_id($post_id);
@@ -170,11 +169,11 @@ function get_post_main_image($post_id, $size='full'){
     $image = wp_get_attachment_image_src( $eyecatch_thumb_id, $size );
     $src = $image[0];
   }else{
+    global $post;
     $src = get_the_post_image($post->ID, $size);
   }
   return apply_filters('get_post_main_image', $src);
 }
-
 
 function page_navi($my_query) {
   global $paged;
