@@ -9,6 +9,7 @@ class Pjax
       'loadScript': true
       'loadLink': true
       'scrollSpeed': 500
+      'bgimageAttr': '[data-bgimage]'
     $.extend(@options, options)
 
     @mainEl = @options.el
@@ -152,7 +153,7 @@ class Pjax
           key = if $(el).attr 'data-pjax' then $(el).attr 'data-pjax' else 'pjax-default-'+i
           $(el).html htmls[key]
 
-        $('[data-bgimage]').each (i, el)=>
+        $(@options.bgimageAttr).each (i, el)=>
           src = $(el).css('background-image').replace(/"|'/g, '').replace(/url\(|\)$/ig, '')
           @$mainEl.prepend $('<img>').attr('src', src).hide()
 
@@ -183,7 +184,7 @@ class Pjax
         $(window).scrollTop 0
 
     else
-      setTimout ->
+      setTimeout ->
         $(window).scrollTop 0
       ,@options.scrollSpeed
 
