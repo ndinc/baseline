@@ -30,7 +30,7 @@
   ],
   "exclude_glob": [
     "node_modules/", ".sass-cache/", ".DS_Store", ".git", ".sublime-project", ".sublime-workspace", "*.json", "vendor/", "config.rb", "*.coffee",
-    ".bowerrc","sass/","coffee/"
+    ".bowerrc","sass/","coffee/", ".htaccess",".htpasswd", "wp-config.php","uploads/"
   ],
 
   "connect_timeout": 30
