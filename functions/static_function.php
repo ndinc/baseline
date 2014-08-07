@@ -15,13 +15,16 @@ function get_sitepath($type = 'url'){
   $out = '';
   switch ($type) {
     case 'url':
-      $out = '';
+      $out = 'http://'.$_SERVER['HTTP_HOST'];
       break;
     case 'template_url':
+      $out = 'http://'.$_SERVER['HTTP_HOST'];
+      break;
+    case 'directory':
       $out = '';
       break;
     default:
-      $out = '';
+      $out = 'http://'.$_SERVER['HTTP_HOST'];
       break;
   }
   return $out;
@@ -109,7 +112,7 @@ function get_head_meta($name=null){
   if (is_home()) {
     $meta = array(
       'title' => $_SITE['title'],
-      'url' => 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+      'url' => get_sitepath('url').'/'.get_req_path(),
       'description' => $_SITE['description'],
       'image' => $_SITE['image'],
       'type' => 'website'
@@ -118,7 +121,7 @@ function get_head_meta($name=null){
     $p = $_SINGLE_POSTS[get_page_file()][get_page_slug()];
     $meta = array(
       'title' => $p['title'].' | '.$_SITE['title'],
-      'url' => 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+      'url' => get_sitepath('url').'/'.get_req_path(),
       'description' => $p['description'],
       'image' => $p['image'],
       'type' => 'article'
@@ -129,7 +132,7 @@ function get_head_meta($name=null){
     $desc = !empty($p['description'])? $p['description'] : $_SITE['description'];
     $meta = array(
       'title' => $p['title'].' | '.$_SITE['title'],
-      'url' => 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+      'url' => get_sitepath('url').'/'.get_req_path(),
       'description' => $desc,
       'image' => $image,
       'type' => 'article'
@@ -137,7 +140,7 @@ function get_head_meta($name=null){
   }else{
     $meta = array(
       'title' => $_SITE['title'],
-      'url' => 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+      'url' => get_sitepath('url').'/'.get_req_path(),
       'description' => $_SITE['description'],
       'image' => $_SITE['image'],
       'type' => 'article'
