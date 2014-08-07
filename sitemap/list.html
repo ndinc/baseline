@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+<link rel="stylesheet" type="text/css" href="sitemap.css" media="all" />
+<title></title>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <h1><a href="/"></a></h1>
+    <p><a href="/" id="current_link" target="_blank"></a></p>
+  </div>
+  <div id="content">
+    <div id="list"></div>
+  </div>
+</div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    var typeName = {
+      'single' : '詳細',
+      'page' : 'ページ',
+      'taxonomy' : 'カテゴリ',
+    }
+    $.ajax({
+      url: '/?page_list=1'
+    }).then(function(data){
+      $('h1 a').text(data.site_name);
+      var listHtml = [];
+      for (type in data.list){
+        listHtml.push('<h2>'+typeName[type]+'</h2>');
+        if(data.list[type] instanceof Array ){
+          listHtml.push('<ul class="linkList">');
+          for(k in data.list[type]){
+            var cls = '';
+            if(data.list[type][k]['slug'] == 'index'){
+              cls = 'current';
+              $('#current_link').attr('href',data.list[type][k]['link']).text(data.list[type][k]['link']);
+            }
+            listHtml.push('<li class="'+cls+'"><a href="'+data.list[type][k]['link']+'" target="main">'+data.list[type][k]['title']+'</a></li>');
+          }
+          listHtml.push('</ul>');
+        }else{
+          for(t in data.list[type]){
+            listHtml.push('<h3>'+t+'</h3>');
+            listHtml.push('<ul class="linkList">');
+            for(k in data.list[type][t]){
+                listHtml.push('<li><a href="'+data.list[type][t][k]['link']+'" target="main">'+data.list[type][t][k]['title']+'</a></li>');
+            }
+            listHtml.push('</ul>');
+          }
+        }
+        // console.log(data.list[type]);
+      }
+      $('#list').append(listHtml.join(''));
+      $(document).on('click','#list a',function(){
+        var href = $(this).attr('href');
+        $('#current_link').attr('href',href).text(href);
+        $('#list li').removeClass('current');
+        $(this).parent('li').addClass('current');
+      });
+    });
+  });
+</script>
+</html>

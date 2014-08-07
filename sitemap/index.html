@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="jp" lang="jp">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title></title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $.ajax({
+        url: '/?page_list=1'
+      }).then(function(data){
+        $('title').html(data.site_name);
+      });
+    });
+  </script>
+</head>
+<frameset cols="240, *" title="test">
+  <frame src="list.html" id="menu" title="menu" name="menu" />
+  <frame src="/" id="main" title="main" name="main" />
+</frameset>
+</html>

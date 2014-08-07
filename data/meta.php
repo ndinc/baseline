@@ -16,7 +16,7 @@
     'site_url' => 'http://'.$_SERVER['HTTP_HOST'],
     'title' => 'Baseline',
     'description' => 'main desc',
-    'image' => ''
+    'image' => get_sitepath('template_url').'/images/ogimage.png'
   );
 
   $_PAGES = array(

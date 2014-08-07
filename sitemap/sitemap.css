@@ -1,0 +1,141 @@
+@charset "utf-8";
+
+html,
+body,
+div,
+h1, h2, h3, h4, h5, h6,
+dl, dt, dd,
+ul, ol, li,
+p, blockquote, address,
+table, th, td,
+pre, form, fieldset, input, textarea {
+  margin:0;
+  padding:0;
+  }
+
+body{
+  font: 11px Helvetica, Arial, Geneva, Verdana, "Hiragino Kaku Gothic Pro", sans-serif;
+  *font-size: small;
+  *font: x-small;
+  line-height:1.8;
+  font-family:Helvetica, Geneva, Verdana, "Hiragino Kaku Gothic Pro", sans-serif;
+  background: #fff;
+  }
+
+div#container {
+  padding: 10px;
+}
+
+h1 {
+  margin: 10px 0 0;
+  line-height: 1.4;
+  font-size: 160%;
+  }
+  h1 a{
+    color: #333;
+    text-decoration: none;
+  }
+h2{
+  text-transform: capitalize;
+  font-size: 140%;
+}
+h3{
+  color: #666;
+  text-transform: capitalize;
+}
+#current_link{
+  color: #008cba;
+  text-decoration: none;
+}
+#current_link:hover{
+  text-decoration: underline;
+}
+
+#list{
+  margin: 10px 0;
+}
+#list li.current a{
+  font-weight: bold;
+  font-size: 120%;
+  color: #008cba;
+  line-height: 1.8em;
+  position: relative;
+}
+
+
+ul.linkList,
+ul.linkList ul {
+  line-height:1.5;
+  list-style-type: none;
+/*  margin-bottom: .75em;
+*/  }
+
+
+ul.linkList {
+    padding: 10px;
+}
+
+ul.linkList ul {
+  margin: 0 0 .75em 1em;
+  margin-bottom: 0;
+  }
+
+ul.linkList li {
+  margin-bottom: .125em;
+  }
+
+.linkList a {
+  color: #333;
+  padding: 2px;
+  text-transform: capitalize;
+  display: block;
+    text-decoration: none;
+
+  }
+
+
+
+ul.linkList a:hover {
+/*  background: #ccc;
+*/
+  text-decoration: underline;
+  }
+
+ul.linkList a small {
+  color: #666;
+  margin: 0 0 0 1em;
+  }
+
+ul.inline,
+ol.inline {
+  margin-left:0 !important;
+  list-style-type: none;
+  }
+
+  ul.inline li,
+  ol.inline li {
+    margin-right:5px;
+    margin-left:0 !important;
+    display:inline;
+    padding-right:16px;
+    _padding-right:10px;
+    background:transparent url(../../img/cws/slash.gif) no-repeat center right;
+    }
+
+div.units {
+  padding: 20px;
+  background: #000;
+  color: #fff;
+}
+
+
+div.unit {
+  width: 25%;
+  float: left;
+}
+
+div.unit iframe {
+  width: 280px;
+  height: 300px;
+  float: left;
+}
