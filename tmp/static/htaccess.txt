@@ -21,6 +21,7 @@ RewriteCond %{REQUEST_URI} !/$
 RewriteCond %{REQUEST_URI} !\.[^/\.]+$
 RewriteRule .* %{REQUEST_URI}/ [L,R]
 RewriteRule index/$ / [L,R]
+RewriteRule sitemap/$ sitemap/index.html [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([0-9A-Za-z_]+)/([0-9A-Za-z_]+)/$ index.php?type=single&file=$1&slug=$2 [L]
