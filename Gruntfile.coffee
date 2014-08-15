@@ -441,6 +441,30 @@ module.exports = (grunt) ->
             'bye;"'
           ]
           return cmd.join ' '
+      'pull-staging-db':
+        command: do ->
+          cmd = [
+            'ssh <%= sftpConfig.user %>@<%= sftpConfig.host %> -p <%= sftpConfig.port %> '
+            '\"mysqldump -h <%= sftpConfig.db.staging.host %> -u <%= sftpConfig.db.staging.user %> -p<%= sftpConfig.db.staging.password %>  <%= sftpConfig.db.staging.name %>\"'
+            ' | '
+            'mysql -u <%= sftpConfig.db.local.user %> -p<%= sftpConfig.db.local.password %> <%= sftpConfig.db.local.name %>'
+          ]
+          return cmd.join ' '
+      'deploy-staging':
+        command: do ->
+          cmd = [
+            'lftp'
+            '-u <%= sftpConfig.user %>,<%= sftpConfig.password %>'
+            '-p <%= sftpConfig.port %>'
+            '<%= sftpConfig.type %>://<%= sftpConfig.host %>'
+            '-e "mirror -Rev'
+            '-X ' + sftpConfig.exclude_glob.join(' -X ')
+            '.'
+            '<%= sftpConfig.remote_path %>;' #remote path
+            'bye;"'
+          ]
+          return cmd.join ' '
+
       'flow-release':
         command: [
           'git flow release start <%= pkg.version %>',
