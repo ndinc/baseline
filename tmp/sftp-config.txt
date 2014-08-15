@@ -23,6 +23,26 @@
     "remote_path": "example.remote_path"
   },
 
+  "db": {
+    "local":{
+      "name": "local.db.name",
+      "user": "root",
+      "password": "root",
+      "host": "localhost"
+    },
+    "staging":{
+      "name": "staging.db.name",
+      "user": "staging.db.user",
+      "password": "staging.db.password",
+      "host": "staging.db.host"
+    },
+    "production":{
+      "name": "production.db.name",
+      "user": "production.db.user",
+      "password": "production.db.password",
+      "host": "production.db.host"
+    }
+  },
   "ignore_regexes": [
       "\\.sublime-(project|workspace)", "sftp-config(-alt\\d?)?\\.json",
       "sftp-settings\\.json", "/venv/", "\\.svn", "\\.hg", "\\.git", "images_/", "node_modules/",

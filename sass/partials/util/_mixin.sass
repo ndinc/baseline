@@ -46,6 +46,33 @@
     float: left
     border: none
 
+@mixin float_thumb_text($width: 60px, $margin: 10px)
+  +mcfix
+  .thumb,
+  .text
+    display: block
+  .thumb
+    float: left
+    width: $width
+  .text
+    margin-left:  $width + $margin
+
+@mixin grid-gutter($gutter: $column-gutter, $is-row: true)
+  @if $is-row == true
+    .row
+      margin: 0 (-1 * $gutter)
+      .columns
+        padding: 0 $gutter
+  @else
+    margin: 0 (-1 * $gutter)
+    .columns
+      padding: 0 $gutter
+
+@mixin block-gutter($gutter: $column-gutter)
+  margin: 0 (-1 * $gutter)
+  > li
+    padding: 0 $gutter
+
 // ---------------------------------------------------------------
 // absolute
 // ---------------------------------------------------------------
