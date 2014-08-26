@@ -10,7 +10,6 @@
   <?php else: ?>
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/css3pie/2.0beta1/PIE_IE678.js"></script>
-      <script src="//cdn.jsdelivr.net/rem/0.1/rem.min.js" type="text/javascript"></script>
     <![endif]-->
     <!--[if IE 9]>
       <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/css3pie/2.0beta1/PIE_IE9.js"></script>

@@ -26,6 +26,7 @@
     <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
     <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="<?php sitepath('template_url'); ?>/javascripts/ie/REM-unit-polyfill/rem.min.js" type="text/javascript"></script>
   <![endif]-->
   <?php if (function_exists('wp_head')) wp_head(); ?>
 </head>
