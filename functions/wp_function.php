@@ -29,7 +29,7 @@ function get_page_path(){
   }else if(is_static()){
     $page_path = 'pages/' . get_query_var('name') . '.php';
   }else if(is_page()){
-    $page_path = 'pages/page.php';
+    $page_path = get_template_directory().'/pages/' . get_query_var('name') . '.php';
   }else if(is_tax()){
     $page_path = get_template_directory().'/page-template/taxonomy.php';
     if (!file_exists($page_path)){
