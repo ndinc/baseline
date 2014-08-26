@@ -266,6 +266,11 @@ module.exports = (grunt) ->
         src: '**/*'
         dest: '<%= dir.sass %>/libs/foundation/'
 
+      ie:
+        expand: true
+        cwd: 'vendor/ie/'
+        src: '**/*'
+        dest: '<%= dir.js %>/ie/'
 
     manifest:
       generate:
@@ -385,6 +390,45 @@ module.exports = (grunt) ->
       options:
         stdout: true
         stderr: true
+      'push-staging-db':
+        command: do ->
+          cmd = [
+            'mysqldump -u <%= sftpConfig.db.local.user %> -p<%= sftpConfig.db.local.password %> <%= sftpConfig.db.local.name %>'
+            ' | '
+            'ssh <%= sftpConfig.user %>@<%= sftpConfig.host %> -p <%= sftpConfig.port %> '
+            '\"mysql -h <%= sftpConfig.db.staging.host %> -u <%= sftpConfig.db.staging.user %> -p<%= sftpConfig.db.staging.password %>  <%= sftpConfig.db.staging.name %>\"'
+          ]
+          return cmd.join ' '
+
+      'pull-staging-db':
+        command: do ->
+          cmd = [
+            'ssh <%= sftpConfig.user %>@<%= sftpConfig.host %> -p <%= sftpConfig.port %> '
+            '\"mysqldump -h <%= sftpConfig.db.staging.host %> -u <%= sftpConfig.db.staging.user %> -p<%= sftpConfig.db.staging.password %>  <%= sftpConfig.db.staging.name %>\"'
+            ' | '
+            'mysql -u <%= sftpConfig.db.local.user %> -p<%= sftpConfig.db.local.password %> <%= sftpConfig.db.local.name %>'
+          ]
+          return cmd.join ' '
+      'push-production-db':
+        command: do ->
+          cmd = [
+            'mysqldump -u <%= sftpConfig.db.local.user %> -p<%= sftpConfig.db.local.password %> <%= sftpConfig.db.local.name %>'
+            ' | '
+            'ssh <%= sftpConfig.production.user %>@<%= sftpConfig.production.host %> -p <%= sftpConfig.production.port %> '
+            '\"mysql -h <%= sftpConfig.db.production.host %> -u <%= sftpConfig.db.production.user %> -p<%= sftpConfig.db.production.password %>  <%= sftpConfig.db.production.name %>\"'
+          ]
+          return cmd.join ' '
+
+      'pull-production-db':
+        command: do ->
+          cmd = [
+            'ssh <%= sftpConfig.production.user %>@<%= sftpConfig.production.host %> -p <%= sftpConfig.production.port %> '
+            '\"mysqldump -h <%= sftpConfig.db.production.host %> -u <%= sftpConfig.db.production.user %> -p<%= sftpConfig.db.production.password %>  <%= sftpConfig.db.production.name %>\"'
+            ' | '
+            'mysql -u <%= sftpConfig.db.local.user %> -p<%= sftpConfig.db.local.password %> <%= sftpConfig.db.local.name %>'
+          ]
+          return cmd.join ' '
+
       'deploy-staging':
         command: do ->
           cmd = [
@@ -433,37 +477,15 @@ module.exports = (grunt) ->
             'lftp'
             '-u <%= sftpConfig.production.user %>,<%= sftpConfig.production.password %>'
             '-p <%= sftpConfig.production.port %>'
-            '<%= sftpConfig.production.type %>://<%= sftpConfig.production.host %>'
+            '<%= sftpConfig.type %>://<%= sftpConfig.production.host %>'
             '-e "mirror -Rev'
-            '-X ' + sftpConfig.production.exclude_glob.join(' -X ')
+            '-X ' + sftpConfig.exclude_glob.join(' -X ')
             './../../../../'
             sftpConfig.production.remote_path.replace('\/wp\/wp-content\/themes\/'+pkg.name,'') + ';' #remote path
             'bye;"'
           ]
           return cmd.join ' '
-      'pull-staging-db':
-        command: do ->
-          cmd = [
-            'ssh <%= sftpConfig.user %>@<%= sftpConfig.host %> -p <%= sftpConfig.port %> '
-            '\"mysqldump -h <%= sftpConfig.db.staging.host %> -u <%= sftpConfig.db.staging.user %> -p<%= sftpConfig.db.staging.password %>  <%= sftpConfig.db.staging.name %>\"'
-            ' | '
-            'mysql -u <%= sftpConfig.db.local.user %> -p<%= sftpConfig.db.local.password %> <%= sftpConfig.db.local.name %>'
-          ]
-          return cmd.join ' '
-      'deploy-staging':
-        command: do ->
-          cmd = [
-            'lftp'
-            '-u <%= sftpConfig.user %>,<%= sftpConfig.password %>'
-            '-p <%= sftpConfig.port %>'
-            '<%= sftpConfig.type %>://<%= sftpConfig.host %>'
-            '-e "mirror -Rev'
-            '-X ' + sftpConfig.exclude_glob.join(' -X ')
-            '.'
-            '<%= sftpConfig.remote_path %>;' #remote path
-            'bye;"'
-          ]
-          return cmd.join ' '
+
 
       'flow-release':
         command: [
@@ -562,6 +584,7 @@ module.exports = (grunt) ->
     'copy:foundation_base'
     'copy:foundation_settings'
     'copy:foundation_all'
+    'copy:ie'
     # 'sass:vendor'
     'concat:vendorScripts'
     'concat:vendorStyles'

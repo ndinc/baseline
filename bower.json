@@ -11,6 +11,7 @@
     "devicejs": null,
     "imagesloaded": null,
     "foundation": "zurb/bower-foundation",
+    "REM-unit-polyfill": null,
     "jquery": "1.11.0"
   },
   "devDependencies": {
@@ -50,6 +51,9 @@
     },
     "jquery-placeholder":{
       "javascripts": "jquery.placeholder"
+    },
+    "REM-unit-polyfill": {
+      "ie": "**/rem.min.js"
     }
   },
   "resolutions": {
