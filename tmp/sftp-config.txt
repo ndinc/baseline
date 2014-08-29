@@ -15,7 +15,7 @@
   "port": "example.port",
   "remote_path": "example.remote_path",
 
-  "production_server": {
+  "production": {
     "host": "example.host",
     "user": "example.user",
     "password": "example.password",

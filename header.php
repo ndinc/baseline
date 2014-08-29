@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="<?php sitepath('template_url'); ?>/stylesheets/libs/foundation/normalize.css" type="text/css">
   <link rel="stylesheet" href="<?php sitepath('template_url'); ?>/stylesheets/libs/foundation/foundation.css" type="text/css">
   <link rel="stylesheet" href="<?php sitepath('template_url'); ?>/stylesheets/vendor.css?<?php echo get_filemtime('/stylesheets/vendor.css') ?>" type="text/css">
-  <link rel="stylesheet" href="<?php sitepath('template_url'); ?>/stylesheets/style.css?<?php echo get_filemtime('/stylesheets/vendor.css') ?>" type="text/css">
+  <link rel="stylesheet" href="<?php sitepath('template_url'); ?>/stylesheets/style.css?<?php echo get_filemtime('/stylesheets/style.css') ?>" type="text/css">
   <?php else: ?>
   <link rel="stylesheet" href="<?php sitepath('template_url'); ?>/stylesheets/style.min.css" type="text/css">
   <?php endif ?>
