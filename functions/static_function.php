@@ -1,5 +1,5 @@
 <?php
-function body_class($custom_class){
+function body_class($custom_class=null){
   $body_class = array(get_page_type(), get_page_file(), get_page_slug());
   if($custom_class){
     $body_class[] = $custom_class;

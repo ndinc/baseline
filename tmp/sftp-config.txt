@@ -46,11 +46,11 @@
   "ignore_regexes": [
       "\\.sublime-(project|workspace)", "sftp-config(-alt\\d?)?\\.json",
       "sftp-settings\\.json", "/venv/", "\\.svn", "\\.hg", "\\.git", "images_/", "node_modules/",
-      "\\.bzr", "_darcs", "CVS", "\\.DS_Store", "Thumbs\\.db", "desktop\\.ini", ".sass-cache","sass/"
+      "\\.bzr", "_darcs", "CVS", "\\.DS_Store", "Thumbs\\.db", "desktop\\.ini", ".sass-cache","sass/","vendor/"
   ],
   "exclude_glob": [
-    "node_modules/", ".sass-cache/", ".DS_Store", ".git", ".sublime-project", ".sublime-workspace", "*.json", "vendor/", "config.rb", "*.coffee",
-    ".bowerrc","sass/","coffee/", ".htaccess",".htpasswd", "wp-config.php","uploads/"
+    "node_modules/", ".sass-cache/", ".DS_Store", ".git", ".git/", ".sublime-project", ".sublime-workspace", "*.json", "vendor/", "config.rb", "*.coffee",
+    ".bowerrc","sass/","coffee/", ".htaccess",".htpasswd", "wp-config.php","uploads/","sftp-config.json"
   ],
 
   "connect_timeout": 30
