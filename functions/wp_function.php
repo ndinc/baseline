@@ -147,6 +147,7 @@ function get_head_meta($name=null){
       'type' => 'article'
     );
   }
+  $meta = array_merge($_SITE, $meta);
   return ( isset($name) && isset($meta[$name]) )? $meta[$name] : $meta;
 }
 
