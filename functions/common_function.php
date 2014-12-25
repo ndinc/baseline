@@ -1,4 +1,33 @@
 <?php
+function get_current_url(){
+  return ((empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+}
+
+function get_locale_url($locale='ja'){
+  $full_url = get_current_url();
+  $path = explode('?', $full_url);
+  if (count($path) > 1){
+    $url = array_shift($path).'?';
+    $search = implode('', $path);
+    $queries = explode('&', $search);
+    foreach ($queries as $i => $query) {
+      $q = explode('=', $query);
+      if($q[0] == 'locale'){
+        $url .= $q[0].'='.$locale;
+      }else{
+        $url .= '&'.$query;
+      }
+    }
+    return $url;
+  }else{
+    return $path[0].'?locale='.$locale;
+  }
+}
+
+function is_lang($lang){
+  global $locale;
+  return $lang == $locale;
+}
 
 function share_btns($url=false, $sns=false, $class=false){
   $sns_btns = new SnsBtns($url, $sns, $class);

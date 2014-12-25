@@ -10,6 +10,17 @@ function get_wp_query ($args=null){
   return $wp_temp_query;
 }
 
+function set_theme_locale(){
+  session_start();
+  global $locale;
+  if (!isset($_SESSION['locale'])) {
+    $_SESSION['locale'] = $locale;
+  } else if (isset( $_GET['locale']) ){
+    $locale = $_GET['locale'];
+    $_SESSION['locale'] = $_GET['locale'];
+  }
+}
+
 function get_page_slug(){
   global $post;
   $slug = is_home()? 'index' : get_query_var('name');
