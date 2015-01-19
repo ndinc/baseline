@@ -192,7 +192,7 @@ class PostQuery {
       //     return $p[$type] == $slug;
       //   }
       // });
-      $this->posts = [];
+      $this->posts = array();
       foreach ($_SINGLE_POSTS[$post_type] as $i => $p) {
         if( (is_array($p[$type]) && in_array($slug, $p[$type]) ) or $p[$type] == $slug){
           $this->posts[] = $p;
