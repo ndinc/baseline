@@ -51,7 +51,9 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 
 function my_class_names($classes) {
-  $filepath = get_req_path();
+  global $locale;
+  $classes[] = $locale;
+  $filepath = get_page_slug();
   $classes[] = $filepath;
   return array_unique($classes);
 }

@@ -35,4 +35,4 @@ function register_custom_post() {
   );
 }
 
-add_action('init','register_custom_post');
+// add_action('init','register_custom_post');

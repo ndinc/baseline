@@ -31,7 +31,7 @@ function get_sitepath($type = 'url'){
 }
 
 function sitepath($type = 'url'){
-  return get_sitepath($type);
+  echo get_sitepath($type);
 }
 
 
@@ -181,16 +181,23 @@ class PostQuery {
     global $_SINGLE_POSTS;
     global $_CATEGORIES;
     global $post_type;
+
     if($_CATEGORIES && $_CATEGORIES[$type]){
       $post_type = $_CATEGORIES[$type]['post_type'];
       $slug = get_page_slug();
-      $this->posts = array_filter($_SINGLE_POSTS[$post_type], function($p) use ($type, $slug){
-        if(is_array($p[$type])){
-          return in_array($slug, $p[$type]);
-        }else{
-          return $p[$type] == $slug;
+      // $this->posts = array_filter($_SINGLE_POSTS[$post_type], function($p) use ($type, $slug){
+      //   if(is_array($p[$type])){
+      //     return in_array($slug, $p[$type]);
+      //   }else{
+      //     return $p[$type] == $slug;
+      //   }
+      // });
+      $this->posts = [];
+      foreach ($_SINGLE_POSTS[$post_type] as $i => $p) {
+        if( (is_array($p[$type]) && in_array($slug, $p[$type]) ) or $p[$type] == $slug){
+          $this->posts[] = $p;
         }
-      });
+      }
     }else{
       $post_type = $type;
       $this->posts = $_SINGLE_POSTS[$type];
