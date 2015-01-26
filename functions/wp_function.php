@@ -94,9 +94,9 @@ function get_head_meta($name=null){
   }
   if (is_home()) {
     $meta = array(
-      'title' => isset($_SITE['title'])? $_SITE['title'] : get_bloginfo('name'),
+      'title' => strip_tags(isset($_SITE['title'])? $_SITE['title'] : get_bloginfo('name')),
       'url' => 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
-      'description' => isset($_SITE['description'])? $_SITE['description'] : get_bloginfo('description'),
+      'description' => strip_tags( isset($_SITE['description'])? $_SITE['description'] : get_bloginfo('description') ),
       'image' => $_SITE['image'],
       'site_name' => $_SITE['site_name'],
       'type' => 'website'
@@ -106,9 +106,9 @@ function get_head_meta($name=null){
     $desc = get_post_main_desc($post->ID);
     $image = get_post_main_image($post->ID);
     $meta = array(
-      'title' => ( isset($title)? $title.' | ' : ''  ).$_SITE['title'],
+      'title' => strip_tags( (isset($title)? $title.' | ' : ''  ).$_SITE['title'] ),
       'url' => 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
-      'description' => ( isset($desc)? $desc : $_SITE['description']  ),
+      'description' => str_replace(array("\r\n","\n","\r"), '', strip_tags( ( isset($desc)? $desc : $_SITE['description']  )) ),
       'image' => isset($image)? $image : $_SITE['image'],
       'site_name' => $_SITE['site_name'],
       'type' => 'article'

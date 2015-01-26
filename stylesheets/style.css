@@ -158,7 +158,7 @@
   }
 }
 /* line 1, ../sass/partials/util/_sprite.sass */
-i.dummy {
+i.dummy, i.test {
   text-indent: -9999px;
   line-height: 1;
   font-size: 1px;
@@ -171,11 +171,18 @@ i.dummy {
 
 /* line 47, ../sass/partials/util/_sprite.sass */
 i.dummy {
-  background-image: url('../images/sprite_base-se7c618d1d0.png');
-  background-image: url(../images//Users/yahsan2/Sites/public/baseline/images/sprite_base-se7c618d1d0.png);
+  background-image: url('../images/sprite_base-s87d5f1f301.png');
   background-position: 0 0;
   padding-top: 120px;
   width: 120px;
+}
+
+/* line 47, ../sass/partials/util/_sprite.sass */
+i.test {
+  background-image: url('../images/sprite_base-s87d5f1f301.png');
+  background-position: 0 -130px;
+  padding-top: 278px;
+  width: 449px;
 }
 
 /* line 1, ../sass/partials/_base.sass */

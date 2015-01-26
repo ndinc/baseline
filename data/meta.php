@@ -15,7 +15,7 @@
     'site_name' => 'Baseline',
     'site_url' => 'http://'.$_SERVER['HTTP_HOST'],
     'title' => 'Baseline',
-    'description' => 'main desc',
+    'keywords' => '',
     'image' => get_sitepath('template_url').'/images/ogimage.png'
   );
 

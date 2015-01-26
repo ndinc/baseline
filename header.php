@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <title><?php echo get_head_meta('title'); ?></title>
   <meta name="description" content="<?php echo get_head_meta('description'); ?>">
+  <meta name="keywords" content="<?php echo get_head_meta('keywords'); ?>">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <?php include "includes/ogp.php"; ?>
   <link rel="apple-touch-icon" href="<?php sitepath('template_url'); ?>/images/apple-touch-icon.png">
